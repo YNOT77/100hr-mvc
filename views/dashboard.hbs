@@ -1,0 +1,78 @@
+<h3>Welcome {{name}} To Your Dashboard</h3>
+<p>This is where you left off, start leaving bread crumbs</p>
+
+<div class="row">
+    <div class="col s6">
+        <form action="/breadcrumbs" method="POST" class="col s12">
+             <div class="row">
+                <div class="input-field">
+                    <h5>What did you just do?</h5>
+                    <textarea name="body" id="body"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field">
+                    <h5>What would you have done if you kept going?</h5>
+                    <textarea name="body2" id="body2"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <input type="submit" value="Save" class="btn">
+                {{!-- <a href="/dashboard" class="btn orange">Cancel</a> --}}
+            </div>
+        </form>
+    </div>
+
+    <div class="col s6 ">
+        <div class="row ">
+            <div class="col s12 m10 offset-m2 center pomodoro">
+                <div class="card ">
+                    <div class="card-image">
+                        {{!-- <img src="images/sample-1.jpg"> --}}
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Pomodoro Timer</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" class=" btn">Start</a>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>
+</div>
+
+
+
+<h1 class="center">Breadcrumbs</h1>
+<div class="row">
+    {{#each breadcrumbs}}
+        <div class="col s12 m6 l6 ">
+            <div class="card">
+                {{!-- <div class="card-image">
+                    {{{editIcon user ../user _id}}}
+                </div> --}}
+                <div class="card-content center-align">
+                    <h5>{{formatDate createdAt 'MM/D/YY, h:mm a'}}</h5>
+                    <div class="divider"></div>
+                    <h5>What did you just do?</h5>
+                    <p>{{stripTags body }}</p>
+                    <br>
+                    <h5>What would you have done if you kept going?</h5>
+                    <p>{{stripTags body2 }}</p>
+                    <br>
+                    <div class="chip">
+                        <img src="{{user.image}}" referrerpolicy="no-referrer" class="circle responsive-img img-small">
+                        <a href="#">{{user.displayName}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{else}}
+        <p>You have not created any breadcrumbs</p>
+    {{/each}}
+</div>
+
