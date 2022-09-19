@@ -52,9 +52,13 @@
     {{#each breadcrumbs}}
         <div class="col s12 m6 l6 ">
             <div class="card">
-                {{!-- <div class="card-image">
-                    {{{editIcon user ../user _id}}}
-                </div> --}}
+                <div class="card-image">
+                    <form action="/breadcrumb/{{_id}}" method="POST" id="delete-form">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn-floating halfway-fab blue">
+                        <i class="fas fa-trash fa-small"></i></button>
+                    </form>
+                </div>
                 <div class="card-content center-align">
                     <h5>{{formatDate createdAt 'MM/D/YY, h:mm a'}}</h5>
                     <div class="divider"></div>

@@ -43,4 +43,17 @@ router.get('/dashboard', ensureAuth, async (req, res) => {
     }
 })
 
+// @desc    Delete Breadcrumb
+// @route   DELETE /breadcrumb/:id
+
+router.delete('/breadcrumb/:id', ensureAuth, async (req, res) => {
+    try {
+        await Breadcrumbs.remove({ _id: req.params.id })
+        res.redirect('/dashboard')
+    } catch (error) {
+        console.error(error)
+        return res.render('error/500')
+    }
+})
+
 module.exports = router
