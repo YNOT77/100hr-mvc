@@ -22,11 +22,22 @@
     <script>
         M.Sidenav.init(document.querySelector('.sidenav'))
         M.FormSelect.init(document.querySelector('#status'))
+        M.Modal.init(document.querySelector('.modal'),{
+            onOpenStart:()=>{
+                const test = "hello"
+            }
+        });
 
         CKEDITOR.replace('body', {
             plugins: 'wysiwygarea, toolbar, basicstyles, link'
         })
         CKEDITOR.replace('body2', {
+            plugins: 'wysiwygarea, toolbar, basicstyles, link'
+        })
+        CKEDITOR.replace('body3', {
+            plugins: 'wysiwygarea, toolbar, basicstyles, link'
+        })
+        CKEDITOR.replace('body4', {
             plugins: 'wysiwygarea, toolbar, basicstyles, link'
         })
     </script>

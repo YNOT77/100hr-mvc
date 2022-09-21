@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col s12 m6">
         <form action="/breadcrumbs" method="POST" class="col s12">
-             <div class="row">
+            <div class="row">
                 <div class="input-field">
                     <h5>What did you just do?</h5>
                     <textarea name="body" id="body"></textarea>
@@ -53,14 +53,17 @@
         <div class="col s12 m6 l6 ">
             <div class="card">
                 <div class="card-image">
+                    <a href="#modal1" class="btn btn-floating halfway-fab left modal-trigger">
+                        <i class="fas fa-edit"></i>
+                    </a>
                     <form action="/breadcrumbs/{{_id}}" method="POST" id="delete-form">
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn-floating halfway-fab blue">
                         <i class="fas fa-trash fa-small"></i></button>
                     </form>
                 </div>
-                <div class="card-content center-align">
-                    <h5>{{formatDate createdAt 'MM/D/YY, h:mm a'}}</h5>
+                <div class="card-content ">
+                    <h5 class="center-align">{{formatDate createdAt 'MM/D/YY, h:mm a'}}</h5>
                     <div class="divider"></div>
                     <h5>What did you just do?</h5>
                     <p>{{{ body }}}</p>
@@ -75,8 +78,43 @@
                 </div>
             </div>
         </div>
+        
+
+        
     {{else}}
         <p>You have not created any breadcrumbs</p>
     {{/each}}
 </div>
 
+
+        <div id="modal1" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <form action="/breadcrumbs/edit/{{_id}}" method="POST" class="col s12">
+                <input type="hidden" name="_method" value="PUT">
+                    <div class="row">
+                        <div class="input-field">
+                            <h5>What did you just do?</h5>
+                            <textarea name="body" id="body3">{{body}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field">
+                            <h5>What would you have done if you kept going?</h5>
+                            <textarea name="body2" id="body4">{{body2}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <input type="submit" value="Save" class="btn">
+                        {{!-- <a href="/dashboard" class="btn orange">Cancel</a> --}}
+                    </div>
+
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+                </form>       
+        </div>        

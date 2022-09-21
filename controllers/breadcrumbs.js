@@ -27,4 +27,14 @@ module.exports = {
             return res.render('error/500')
         }
     },
+    // @desc    Edit Breadcrumb
+    // @route   PUT /edit/:id
+    editBreadcrumb: async (req, res) =>{
+        try {
+            
+        } catch (error) {
+            console.error(error)
+            res.redirect('error/500')
+        }
+    }
 }
