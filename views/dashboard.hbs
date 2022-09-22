@@ -48,6 +48,7 @@
 
 
 <h1 class="center">Breadcrumbs</h1>
+<br>
 <div class="row">
     {{#each breadcrumbs}}
         <div class="col s12 m6 l6 ">
@@ -80,13 +81,6 @@
         </div>
         
 
-        
-    {{else}}
-        <p>You have not created any breadcrumbs</p>
-    {{/each}}
-</div>
-
-
         <div id="modal1" class="modal modal-fixed-footer">
             <div class="modal-content">
                 <form action="/breadcrumbs/edit/{{_id}}" method="POST" class="col s12">
@@ -106,15 +100,18 @@
                     </div>
 
                     <div class="row">
-                        <input type="submit" value="Save" class="btn">
+                        {{!-- <input type="submit" value="Save" class="btn"> --}}
                         {{!-- <a href="/dashboard" class="btn orange">Cancel</a> --}}
                     </div>
-
-                <h4>Modal Header</h4>
-                <p>A bunch of text</p>
             </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
+                    <div class="modal-footer">
+                        <input type="submit" value="Save" class="btn modal-close">
+                    </div>
                 </form>       
         </div>        
+        
+    {{else}}
+        <p>You have not created any breadcrumbs</p>
+    {{/each}}
+</div>
+

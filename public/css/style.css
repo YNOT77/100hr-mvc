@@ -28,6 +28,9 @@ p {
     
 }
 
+.card{
+    border-radius: 8px;
+}
 
 .parallax-container {
   min-height: 380px;

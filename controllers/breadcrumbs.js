@@ -31,9 +31,35 @@ module.exports = {
     // @route   PUT /edit/:id
     editBreadcrumb: async (req, res) =>{
         try {
-            
+            let breadcrumb = await Breadcrumbs.findById(req.params.id)
+
+            if(!breadcrumb){
+                return res.render('error/404')
+            }
+
+            if(breadcrumb.user != req.user.id){
+                res.redirect('/dashboard')
+            }else{
+                breadcrumb = await Breadcrumbs.findOneAndUpdate({_id: req.params.id},req.body, {
+                    new: true,
+                    reunValidators: true
+                })
+                res.redirect('/dashboard')
+            }
+
+
         } catch (error) {
             console.error(error)
+            res.redirect('error/500')
+        }
+    },
+    // @desc    GET Breadcrumb
+    // @route   GET /:id    
+    getBreadcrumb: async (req, res)=>{
+        try {
+            
+        } catch (error) {
+            console.error(error);
             res.redirect('error/500')
         }
     }

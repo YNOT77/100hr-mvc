@@ -4,7 +4,7 @@ const {ensureAuth} = require('../middleware/auth')
 const breadcrumbsController = require('../controllers/breadcrumbs')
 const Breadcrumbs = require('../models/Breadcrumbs')
 
-
+router.get('/:id', ensureAuth, breadcrumbsController.getBreadcrumb);
 router.post('/', ensureAuth, breadcrumbsController.createBreadcrumb);
 router.delete('/:id', ensureAuth, breadcrumbsController.deleteBreadcrumb);
 router.put('/edit/:id', ensureAuth, breadcrumbsController.editBreadcrumb)
