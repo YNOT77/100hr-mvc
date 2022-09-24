@@ -88,6 +88,7 @@ app.set('view engine', '.hbs');
 app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
 app.use('/breadcrumbs', require('./routes/breadcrumbs'))
+app.use('/features', require('./routes/features'))
 
 
 const PORT = process.env.PORT || 8501

@@ -28,11 +28,8 @@
     <div class="col s12 m6">
         <div class="row ">
             <div class="col s12 m10 offset-m2 center pomodoro">
-                <div class="card ">
-                    <div class="card-image">
-                        {{!-- <img src="images/sample-1.jpg"> --}}
-                        <span class="card-title">Card Title</span>
-                    </div>
+                <h3 class="header">Pomodoro Timer</h3>
+                <div class="card">
                     <div class="card-content">
                         <p>Pomodoro Timer</p>
                     </div>
@@ -81,37 +78,39 @@
         </div>
         
 
-        <div id="modal1" class="modal modal-fixed-footer">
-            <div class="modal-content">
-                <form action="/breadcrumbs/edit/{{_id}}" method="POST" class="col s12">
-                <input type="hidden" name="_method" value="PUT">
-                    <div class="row">
-                        <div class="input-field">
-                            <h5>What did you just do?</h5>
-                            <textarea name="body" id="body3">{{body}}</textarea>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field">
-                            <h5>What would you have done if you kept going?</h5>
-                            <textarea name="body2" id="body4">{{body2}}</textarea>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        {{!-- <input type="submit" value="Save" class="btn"> --}}
-                        {{!-- <a href="/dashboard" class="btn orange">Cancel</a> --}}
-                    </div>
-            </div>
-                    <div class="modal-footer">
-                        <input type="submit" value="Save" class="btn modal-close">
-                    </div>
-                </form>       
-        </div>        
         
     {{else}}
         <p>You have not created any breadcrumbs</p>
     {{/each}}
 </div>
+
+<div id="modal1" class="modal modal-fixed-footer ">
+        <div class="modal-content">
+            <form action="/breadcrumbs/edit/" method="POST" class="col s12">
+            <input type="hidden" name="_method" value="PUT">
+                <div class="row">
+                    <div class="input-field">
+                        <h5>What did you just do?</h5>
+                        <textarea name="body" id="body3">{{body}}</textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field">
+                        <h5>What would you have done if you kept going?</h5>
+                        <textarea name="body2" id="body4">{{body2}}</textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    {{!-- <input type="submit" value="Save" class="btn"> --}}
+                    {{!-- <a href="/dashboard" class="btn orange">Cancel</a> --}}
+                </div>
+        </div>
+        <div class="modal-footer">
+            <input type="submit" value="Save" class="btn modal-close">
+        </div>
+        </form>       
+</div>
+        
 

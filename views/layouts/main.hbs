@@ -22,7 +22,7 @@
     <script>
         M.Sidenav.init(document.querySelector('.sidenav'))
         M.FormSelect.init(document.querySelector('#status'))
-        M.Modal.init(document.querySelector('.modal'),{
+        M.Modal.init(document.querySelectorAll('.modal'),{
             onOpenStart:()=>{
                 const test = "hello"
             }

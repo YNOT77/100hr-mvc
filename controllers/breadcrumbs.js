@@ -46,8 +46,6 @@ module.exports = {
                 })
                 res.redirect('/dashboard')
             }
-
-
         } catch (error) {
             console.error(error)
             res.redirect('error/500')
